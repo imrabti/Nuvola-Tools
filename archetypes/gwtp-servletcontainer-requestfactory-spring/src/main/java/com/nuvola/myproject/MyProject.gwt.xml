@@ -10,6 +10,7 @@
     <inherits name='com.google.gwt.editor.Editor'/>
     <inherits name='com.google.gwt.text.Text'/>
     <inherits name="com.google.gwt.query.Query"/>
+    <inherits name="com.github.gwtbootstrap.Bootstrap" />
 
     <!-- Default css -->
     <inherits name='com.google.gwt.user.theme.standard.Standard'/>
