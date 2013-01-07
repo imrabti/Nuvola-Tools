@@ -17,6 +17,7 @@
         <gin.version>2.0.0</gin.version>
         <arcbees-core.version>1.0-SNAPSHOT</arcbees-core.version>
         <gwt-query.version>1.2.0</gwt-query.version>
+        <gwt-bootstrap.version>2.2.1.0-SNAPSHOT</gwt-bootstrap.version>
         <gwt.style>OBF</gwt.style>
         
         <!-- server -->
@@ -229,6 +230,11 @@
             <artifactId>gwtquery</artifactId>
             <version>${gwt-query.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.gwtbootstrap</groupId>
+            <artifactId>gwt-bootstrap</artifactId>
+            <version>${gwt-bootstrap.version}</version>
         </dependency>
 
         <!-- DI dependencies -->
