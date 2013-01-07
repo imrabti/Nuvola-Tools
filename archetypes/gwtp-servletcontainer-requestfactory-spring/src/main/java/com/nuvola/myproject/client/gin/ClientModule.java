@@ -17,6 +17,7 @@
 package com.nuvola.myproject.client.gin;
 
 import com.nuvola.myproject.client.application.ApplicationModule;
+import com.nuvola.myproject.client.event.EventSourceRequestTransport;
 import com.nuvola.myproject.client.place.DefaultPlace;
 import com.nuvola.myproject.client.place.NameTokens;
 import com.nuvola.myproject.client.place.PlaceManager;
@@ -32,6 +33,7 @@ import com.google.inject.Singleton;
 import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
 import com.gwtplatform.mvp.client.gin.DefaultModule;
+import com.nuvola.myproject.client.security.SecurityUtils;
 
 public class ClientModule extends AbstractPresenterModule {
     @Override
@@ -44,6 +46,7 @@ public class ClientModule extends AbstractPresenterModule {
 
         bind(Resources.class).in(Singleton.class);
         bind(MessageBundle.class).in(Singleton.class);
+        bind(SecurityUtils.class).in(Singleton.class);
 
         requestStaticInjection(ReceiverImpl.class);
         requestStaticInjection(ValidatedReceiverImpl.class);
@@ -53,9 +56,9 @@ public class ClientModule extends AbstractPresenterModule {
         private final MyRequestFactory requestFactory;
 
         @Inject
-        public RequestFactoryProvider(EventBus eventBus) {
+        public RequestFactoryProvider(EventBus eventBus, SecurityUtils securityUtils) {
             requestFactory = GWT.create(MyRequestFactory.class);
-            requestFactory.initialize(eventBus);
+            requestFactory.initialize(eventBus, new EventSourceRequestTransport(eventBus, securityUtils));
         }
 
         public MyRequestFactory get() {

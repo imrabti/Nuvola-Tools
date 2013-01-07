@@ -17,7 +17,6 @@
 package com.nuvola.myproject.client.application.home.ui;
 
 import com.nuvola.myproject.client.request.proxy.MyEntityProxy;
-import com.google.gwt.editor.client.Editor;
 import com.google.gwt.editor.client.SimpleBeanEditorDriver;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -25,10 +24,11 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
+import com.nuvola.myproject.client.util.EditorView;
 
 import static com.google.gwt.query.client.GQuery.$;
 
-public class MyEntityEditor extends Composite implements Editor<MyEntityProxy> {
+public class MyEntityEditor extends Composite implements EditorView<MyEntityProxy> {
     public interface Binder extends UiBinder<Widget, MyEntityEditor> {
     }
 
@@ -53,11 +53,13 @@ public class MyEntityEditor extends Composite implements Editor<MyEntityProxy> {
         $(lastName).id("lastName");
     }
 
+    @Override
     public void edit(MyEntityProxy myEntity) {
         firstName.setFocus(true);
         driver.edit(myEntity);
     }
 
+    @Override
     public MyEntityProxy get() {
         MyEntityProxy myEntity = driver.flush();
         if (driver.hasErrors()) {
