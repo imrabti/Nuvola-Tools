@@ -33,6 +33,8 @@ import com.google.inject.Singleton;
 import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
 import com.gwtplatform.mvp.client.gin.DefaultModule;
+import com.nuvola.myproject.client.security.HasRoleGatekeeper;
+import com.nuvola.myproject.client.security.LoggedInGatekeeper;
 import com.nuvola.myproject.client.security.SecurityUtils;
 
 public class ClientModule extends AbstractPresenterModule {
@@ -47,6 +49,9 @@ public class ClientModule extends AbstractPresenterModule {
         bind(Resources.class).in(Singleton.class);
         bind(MessageBundle.class).in(Singleton.class);
         bind(SecurityUtils.class).in(Singleton.class);
+
+        bind(LoggedInGatekeeper.class).in(Singleton.class);
+        bind(HasRoleGatekeeper.class).in(Singleton.class);
 
         requestStaticInjection(ReceiverImpl.class);
         requestStaticInjection(ValidatedReceiverImpl.class);
