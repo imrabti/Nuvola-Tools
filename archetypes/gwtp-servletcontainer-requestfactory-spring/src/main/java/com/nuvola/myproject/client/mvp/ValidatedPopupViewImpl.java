@@ -17,6 +17,8 @@
 package com.nuvola.myproject.client.mvp;
 
 import com.arcbees.core.client.mvp.PopupViewImpl;
+import com.github.gwtbootstrap.client.ui.ControlGroup;
+import com.github.gwtbootstrap.client.ui.constants.ControlGroupType;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.query.client.Function;
 import com.google.gwt.user.client.Event;
@@ -40,8 +42,9 @@ public abstract class ValidatedPopupViewImpl extends PopupViewImpl implements Va
     public void showErrors(Set<ConstraintViolation<?>> violations) {
         for (ConstraintViolation violation : violations) {
             String fieldId = "#" + violation.getPropertyPath();
-            $(fieldId).addClass("errorField");
             $(fieldId).attr("message", violation.getMessage());
+            ControlGroup wrapper = $(fieldId).parent().widget();
+            wrapper.setType(ControlGroupType.ERROR);
 
             $(fieldId).focus(new Function() {
                 @Override
@@ -67,7 +70,8 @@ public abstract class ValidatedPopupViewImpl extends PopupViewImpl implements Va
                 String fieldId = "#" + e.getId();
                 $(fieldId).unbind(Event.ONFOCUS);
                 $(fieldId).unbind(Event.ONBLUR);
-                $(fieldId).removeClass("errorField");
+                ControlGroup wrapper = $(fieldId).parent().widget();
+                wrapper.setType(ControlGroupType.NONE);
             }
         });
     }
