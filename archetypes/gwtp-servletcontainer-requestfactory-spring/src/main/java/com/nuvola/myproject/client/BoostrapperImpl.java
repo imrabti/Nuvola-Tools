@@ -16,14 +16,25 @@
 
 package com.nuvola.myproject.client;
 
-import com.gwtplatform.mvp.client.ApplicationController;
-import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.core.client.GWT;
+import com.google.inject.Inject;
+import com.gwtplatform.mvp.client.Bootstrapper;
+import com.gwtplatform.mvp.client.annotations.IsTheBootstrapper;
+import com.nuvola.myproject.client.place.PlaceManager;
+import com.nuvola.myproject.client.resource.Resources;
 
-public class MyProject implements EntryPoint {
+@IsTheBootstrapper
+public class BoostrapperImpl implements Bootstrapper {
+    private final PlaceManager placeManager;
+
+    @Inject
+    public BoostrapperImpl(final PlaceManager placeManager, final Resources resources) {
+        this.placeManager = placeManager;
+
+        resources.generalStyleCss().ensureInjected();
+    }
 
     @Override
-    public void onModuleLoad() {
+    public void init() {
+        placeManager.revealCurrentPlace();
     }
 }
-
