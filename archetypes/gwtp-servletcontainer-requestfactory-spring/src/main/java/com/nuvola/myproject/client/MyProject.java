@@ -16,19 +16,16 @@
 
 package com.nuvola.myproject.client;
 
-import com.nuvola.myproject.client.gin.ClientGinjector;
+import com.gwtplatform.mvp.client.ApplicationController;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
-import com.gwtplatform.mvp.client.DelayedBindRegistry;
 
 public class MyProject implements EntryPoint {
-    private final ClientGinjector ginjector = GWT.create(ClientGinjector.class);
+    private static ApplicationController controller = GWT.create(ApplicationController.class);
 
     @Override
     public void onModuleLoad() {
-        DelayedBindRegistry.bind(ginjector);
-
-        ginjector.getResources().generalStyleCss().ensureInjected();
-        ginjector.getPlaceManager().revealCurrentPlace();
+        controller.init();
     }
 }
+
