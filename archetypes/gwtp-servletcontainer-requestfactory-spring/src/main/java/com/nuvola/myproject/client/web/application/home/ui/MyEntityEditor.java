@@ -14,7 +14,7 @@
  * the License.
  */
 
-package com.nuvola.myproject.client.application.home.ui;
+package com.nuvola.myproject.client.web.application.home.ui;
 
 import com.nuvola.myproject.client.request.proxy.MyEntityProxy;
 import com.google.gwt.editor.client.SimpleBeanEditorDriver;

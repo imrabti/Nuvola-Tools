@@ -14,13 +14,13 @@
  * the License.
  */
 
-package com.nuvola.myproject.client.application;
+package com.nuvola.myproject.client.web.application;
 
-import com.nuvola.myproject.client.application.home.HomeModule;
-import com.nuvola.myproject.client.application.widget.HeaderPresenter;
-import com.nuvola.myproject.client.application.widget.HeaderView;
-import com.nuvola.myproject.client.application.widget.SiderHolderPresenter;
-import com.nuvola.myproject.client.application.widget.SiderHolderView;
+import com.nuvola.myproject.client.web.application.home.HomeModule;
+import com.nuvola.myproject.client.web.application.widget.HeaderPresenter;
+import com.nuvola.myproject.client.web.application.widget.HeaderView;
+import com.nuvola.myproject.client.web.application.widget.SiderHolderPresenter;
+import com.nuvola.myproject.client.web.application.widget.SiderHolderView;
 import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
 
 public class ApplicationModule extends AbstractPresenterModule {

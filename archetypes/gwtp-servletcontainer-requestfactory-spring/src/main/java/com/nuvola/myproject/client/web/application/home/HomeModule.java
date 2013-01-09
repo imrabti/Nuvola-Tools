@@ -14,7 +14,7 @@
  * the License.
  */
 
-package com.nuvola.myproject.client.application.home;
+package com.nuvola.myproject.client.web.application.home;
 
 import com.arcbees.core.client.mvp.uihandlers.SetterUiHandlersStrategy;
 import com.arcbees.core.client.mvp.uihandlers.UiHandlersStrategy;

@@ -14,10 +14,10 @@
  * the License.
  */
 
-package com.nuvola.myproject.client.application;
+package com.nuvola.myproject.client.web.application;
 
-import com.nuvola.myproject.client.application.widget.HeaderPresenter;
-import com.nuvola.myproject.client.application.widget.SiderHolderPresenter;
+import com.nuvola.myproject.client.web.application.widget.HeaderPresenter;
+import com.nuvola.myproject.client.web.application.widget.SiderHolderPresenter;
 import com.nuvola.myproject.client.event.RequestEvent;
 import com.google.gwt.event.shared.GwtEvent.Type;
 import com.google.inject.Inject;

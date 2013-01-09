@@ -14,7 +14,7 @@
  * the License.
  */
 
-package com.nuvola.myproject.client.application.widget;
+package com.nuvola.myproject.client.web.application.widget;
 
 import com.arcbees.core.client.mvp.ViewImpl;
 import com.google.gwt.uibinder.client.UiBinder;

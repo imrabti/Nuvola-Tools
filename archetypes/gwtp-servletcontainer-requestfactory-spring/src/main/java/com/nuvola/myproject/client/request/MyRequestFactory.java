@@ -19,5 +19,7 @@ package com.nuvola.myproject.client.request;
 import com.google.web.bindery.requestfactory.shared.RequestFactory;
 
 public interface MyRequestFactory extends RequestFactory {
+    AuthenticationRequest authenticationService();
+
     MyServiceRequest myService();
 }

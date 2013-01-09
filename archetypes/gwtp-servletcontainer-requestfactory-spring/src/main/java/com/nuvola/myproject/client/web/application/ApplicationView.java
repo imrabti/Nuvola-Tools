@@ -14,11 +14,11 @@
  * the License.
  */
 
-package com.nuvola.myproject.client.application;
+package com.nuvola.myproject.client.web.application;
 
 import com.arcbees.core.client.mvp.ViewImpl;
-import com.nuvola.myproject.client.application.ui.AjaxLoader;
-import com.nuvola.myproject.client.application.widget.FooterView;
+import com.nuvola.myproject.client.web.application.ui.AjaxLoader;
+import com.nuvola.myproject.client.web.application.widget.FooterView;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.SimpleLayoutPanel;

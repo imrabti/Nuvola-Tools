@@ -22,8 +22,11 @@ import com.google.gwt.core.client.GWT;
 
 public class MyProject implements EntryPoint {
 
+    private static ApplicationController controller = GWT.create(ApplicationController.class);
+
     @Override
     public void onModuleLoad() {
+        controller.init();
     }
 }
 

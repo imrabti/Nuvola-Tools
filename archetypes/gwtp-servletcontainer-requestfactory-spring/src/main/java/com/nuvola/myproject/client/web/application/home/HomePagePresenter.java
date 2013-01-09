@@ -14,9 +14,9 @@
  * the License.
  */
 
-package com.nuvola.myproject.client.application.home;
+package com.nuvola.myproject.client.web.application.home;
 
-import com.nuvola.myproject.client.application.ApplicationPresenter;
+import com.nuvola.myproject.client.web.application.ApplicationPresenter;
 import com.nuvola.myproject.client.mvp.ValidatedView;
 import com.nuvola.myproject.client.place.NameTokens;
 import com.nuvola.myproject.client.request.MyRequestFactory;

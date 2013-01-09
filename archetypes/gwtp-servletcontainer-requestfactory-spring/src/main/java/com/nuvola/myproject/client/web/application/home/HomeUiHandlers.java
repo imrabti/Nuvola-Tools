@@ -14,7 +14,7 @@
  * the License.
  */
 
-package com.nuvola.myproject.client.application.home;
+package com.nuvola.myproject.client.web.application.home;
 
 import com.nuvola.myproject.client.request.proxy.MyEntityProxy;
 import com.gwtplatform.mvp.client.UiHandlers;

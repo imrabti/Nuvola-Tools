@@ -16,7 +16,7 @@
 
 package com.nuvola.myproject.client.gin;
 
-import com.nuvola.myproject.client.application.ApplicationModule;
+import com.nuvola.myproject.client.web.RootModule;
 import com.nuvola.myproject.client.event.EventSourceRequestTransport;
 import com.nuvola.myproject.client.place.DefaultPlace;
 import com.nuvola.myproject.client.place.NameTokens;
@@ -41,7 +41,7 @@ public class ClientModule extends AbstractPresenterModule {
     @Override
     protected void configure() {
         install(new DefaultModule(PlaceManager.class));
-        install(new ApplicationModule());
+        install(new RootModule());
 
         bind(MyRequestFactory.class).toProvider(RequestFactoryProvider.class).in(Singleton.class);
         bindConstant().annotatedWith(DefaultPlace.class).to(NameTokens.home);

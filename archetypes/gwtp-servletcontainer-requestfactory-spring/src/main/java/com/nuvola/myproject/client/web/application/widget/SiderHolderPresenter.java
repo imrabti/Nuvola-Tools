@@ -14,19 +14,19 @@
  * the License.
  */
 
-package com.nuvola.myproject.client.application.widget;
+package com.nuvola.myproject.client.web.application.widget;
 
-import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
+import com.google.web.bindery.event.shared.EventBus;
+import com.gwtplatform.mvp.client.PresenterWidget;
+import com.gwtplatform.mvp.client.View;
 
-public class FooterView extends Composite {
-    public interface Binder extends UiBinder<Widget, FooterView> {
+public class SiderHolderPresenter extends PresenterWidget<SiderHolderPresenter.MyView> {
+    public interface MyView extends View {
     }
 
     @Inject
-    public FooterView(final Binder uiBinder) {
-        initWidget(uiBinder.createAndBindUi(this));
+    public SiderHolderPresenter(EventBus eventBus, MyView view) {
+        super(eventBus, view);
     }
 }

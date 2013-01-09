@@ -14,7 +14,7 @@
  * the License.
  */
 
-package com.nuvola.myproject.client.application.ui;
+package com.nuvola.myproject.client.web.application.ui;
 
 import com.nuvola.myproject.client.resource.Resources;
 import com.google.gwt.user.client.DOM;

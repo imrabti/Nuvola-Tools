@@ -14,10 +14,10 @@
  * the License.
  */
 
-package com.nuvola.myproject.client.application.home;
+package com.nuvola.myproject.client.web.application.home;
 
 import com.arcbees.core.client.mvp.uihandlers.UiHandlersStrategy;
-import com.nuvola.myproject.client.application.home.ui.MyEntityEditor;
+import com.nuvola.myproject.client.web.application.home.ui.MyEntityEditor;
 import com.nuvola.myproject.client.mvp.ValidatedViewWithUiHandlers;
 import com.nuvola.myproject.client.mvp.ValidationErrorPopup;
 import com.nuvola.myproject.client.request.proxy.MyEntityProxy;
