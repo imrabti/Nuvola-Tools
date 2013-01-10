@@ -71,11 +71,7 @@ public class BootstrapperImpl implements Bootstrapper {
             logger.info("User is not authentified -- access denied...");
             bounceToLogin();
         } else {
-            if (placeManager.getCurrentPlaceRequest().matchesNameToken(NameTokens.getLogin())) {
-                bounceToHome();
-            } else {
-                placeManager.revealCurrentPlace();
-            }
+            bounceToHome();
         }
     }
 

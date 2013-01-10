@@ -16,12 +16,14 @@
 
 package com.nuvola.myproject.client.request;
 
-import com.google.web.bindery.requestfactory.shared.RequestFactory;
+import com.google.web.bindery.requestfactory.shared.Request;
+import com.google.web.bindery.requestfactory.shared.RequestContext;
+import com.google.web.bindery.requestfactory.shared.Service;
+import com.nuvola.myproject.client.request.proxy.UserProxy;
+import com.nuvola.myproject.server.service.impl.RegistrationServiceImpl;
+import com.nuvola.myproject.server.util.SpringServiceLocator;
 
-public interface MyRequestFactory extends RequestFactory {
-    AuthenticationRequest authenticationService();
-
-    RegistrationRequest registrationService();
-
-    MyServiceRequest myService();
+@Service(value = RegistrationServiceImpl.class, locator = SpringServiceLocator.class)
+public interface RegistrationRequest extends RequestContext {
+    Request<Void> register(UserProxy userProxy);
 }
