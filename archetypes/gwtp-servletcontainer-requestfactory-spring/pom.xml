@@ -40,6 +40,7 @@
         <hsqldb.version>2.0.0</hsqldb.version>
         <xalan.version>2.7.1</xalan.version>
         <json.version>20090211</json.version>
+        <activiti.version>5.11</activiti.version>
         
         <!-- testing -->
         <junit.version>4.11</junit.version>
@@ -195,6 +196,12 @@
             <name>Sonatype snapshot repository</name>
             <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
         </repository>
+
+        <!-- Activiti Workflow repository -->
+        <repository>
+            <id>Alfresco Maven Repository</id>
+            <url>https://maven.alfresco.com/nexus/content/groups/public/</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -257,6 +264,42 @@
             <artifactId>gin</artifactId>
             <version>${gin.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- Activiti workflow dependencies -->
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-engine</artifactId>
+            <version>${activiti.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring-beans</artifactId>
+                    <groupId>org.springframework</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-spring</artifactId>
+            <version>${activiti.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring-context</artifactId>
+                    <groupId>org.springframework</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>spring-jdbc</artifactId>
+                    <groupId>org.springframework</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>spring-tx</artifactId>
+                    <groupId>org.springframework</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>spring-orm</artifactId>
+                    <groupId>org.springframework</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!-- Hibernate dependencies -->
