@@ -16,6 +16,8 @@
 
 package com.nuvola.myproject.client.web.application.home;
 
+import com.github.gwtbootstrap.client.ui.constants.AlertType;
+import com.nuvola.myproject.client.resource.message.MessageBundle;
 import com.nuvola.myproject.client.web.application.ApplicationPresenter;
 import com.nuvola.myproject.client.mvp.ValidatedView;
 import com.nuvola.myproject.client.place.NameTokens;
@@ -31,6 +33,9 @@ import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
+import com.nuvola.myproject.client.web.widget.message.CloseDelay;
+import com.nuvola.myproject.client.web.widget.message.Message;
+import com.nuvola.myproject.client.web.widget.message.event.MessageEvent;
 
 import javax.validation.ConstraintViolation;
 import java.util.List;
@@ -50,16 +55,18 @@ public class HomePagePresenter extends Presenter<HomePagePresenter.MyView, HomeP
     }
 
     private final MyRequestFactory requestFactory;
+    private final MessageBundle messageBundle;
 
     private MyServiceRequest currentContext;
     private String searchToken;
 
     @Inject
     public HomePagePresenter(final EventBus eventBus, final MyView view, final MyProxy proxy,
-                             final MyRequestFactory requestFactory) {
+                             final MyRequestFactory requestFactory, final MessageBundle messageBundle) {
         super(eventBus, view, proxy, ApplicationPresenter.TYPE_SetMainContent);
 
         this.requestFactory = requestFactory;
+        this.messageBundle = messageBundle;
 
         getView().setUiHandlers(this);
     }
@@ -72,6 +79,12 @@ public class HomePagePresenter extends Presenter<HomePagePresenter.MyView, HomeP
                 getView().clearErrors();
                 loadEntities();
                 initializeContext();
+
+                Message message = new Message.Builder(messageBundle.myEntitySaveSucess())
+                        .style(AlertType.SUCCESS)
+                        .closeDelay(CloseDelay.DEFAULT)
+                        .build();
+                MessageEvent.fire(this, message);
             }
 
             @Override
