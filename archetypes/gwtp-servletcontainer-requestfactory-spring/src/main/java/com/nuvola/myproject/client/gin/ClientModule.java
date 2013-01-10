@@ -16,6 +16,7 @@
 
 package com.nuvola.myproject.client.gin;
 
+import com.nuvola.myproject.client.security.CurrentUserProvider;
 import com.nuvola.myproject.client.web.RootModule;
 import com.nuvola.myproject.client.event.EventSourceRequestTransport;
 import com.nuvola.myproject.client.place.DefaultPlace;
@@ -49,6 +50,7 @@ public class ClientModule extends AbstractPresenterModule {
         bind(Resources.class).in(Singleton.class);
         bind(MessageBundle.class).in(Singleton.class);
         bind(SecurityUtils.class).in(Singleton.class);
+        bind(CurrentUserProvider.class).in(Singleton.class);
 
         bind(LoggedInGatekeeper.class).in(Singleton.class);
         bind(HasRoleGatekeeper.class).in(Singleton.class);

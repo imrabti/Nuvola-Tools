@@ -22,9 +22,11 @@ import com.gwtplatform.mvp.client.annotations.IsTheBootstrapper;
 import com.gwtplatform.mvp.client.proxy.PlaceRequest;
 import com.nuvola.myproject.client.place.NameTokens;
 import com.nuvola.myproject.client.place.PlaceManager;
-import com.nuvola.myproject.client.request.MyRequestFactory;
+import com.nuvola.myproject.client.request.proxy.UserProxy;
 import com.nuvola.myproject.client.resource.Resources;
+import com.nuvola.myproject.client.security.CurrentUserProvider;
 import com.nuvola.myproject.client.security.SecurityUtils;
+import com.nuvola.myproject.client.util.CallbackImpl;
 
 import java.util.logging.Logger;
 
@@ -34,24 +36,46 @@ public class BootstrapperImpl implements Bootstrapper {
 
     private final PlaceManager placeManager;
     private final SecurityUtils securityUtils;
-    private final MyRequestFactory requestFactory;
+    private final CurrentUserProvider currentUserProvider;
+    private final CallbackImpl<UserProxy> getCurrentUserCallback;
 
     @Inject
     public BootstrapperImpl(final PlaceManager placeManager, final Resources resources,
-                            final SecurityUtils securityUtils, final MyRequestFactory requestFactory) {
+                            final SecurityUtils securityUtils,
+                            final CurrentUserProvider currentUserProvider) {
         this.placeManager = placeManager;
         this.securityUtils = securityUtils;
-        this.requestFactory = requestFactory;
+        this.currentUserProvider = currentUserProvider;
 
         resources.generalStyleCss().ensureInjected();
+
+        getCurrentUserCallback = new CallbackImpl<UserProxy>() {
+            @Override
+            public void onSuccess(UserProxy userProxy) {
+                onGetCurrentUser(userProxy);
+            }
+        };
     }
 
     @Override
     public void init() {
         if (securityUtils.isLoggedIn()) {
-            //requestFactory.authenticationService().currentUser().fire(getCurrentUserCallback);
+            currentUserProvider.load(getCurrentUserCallback);
         } else {
             bounceToLogin();
+        }
+    }
+
+    private void onGetCurrentUser(UserProxy currentUser) {
+        if (currentUser == null) {
+            logger.info("User is not authentified -- access denied...");
+            bounceToLogin();
+        } else {
+            if (placeManager.getCurrentPlaceRequest().matchesNameToken(NameTokens.getLogin())) {
+                bounceToHome();
+            } else {
+                placeManager.revealCurrentPlace();
+            }
         }
     }
 
