@@ -18,10 +18,15 @@ package com.nuvola.myproject.client.place;
 
 public class NameTokens {
     public static final String login = "login";
+    public static final String register = "register";
     public static final String home = "home";
 
     public static String getLogin() {
         return login;
+    }
+
+    public static String getRegister() {
+        return register;
     }
 
     public static String getHome() {
