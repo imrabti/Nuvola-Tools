@@ -9,9 +9,6 @@
                     <!-- Ajax Loader displayer -->
                     <f:AjaxLoader ui:field="ajaxLoader"/>
 
-                    <!-- Info, warning, error messages displayer -->
-                    <g:SimplePanel ui:field="messageDisplay"/>
-
                     <g:SimplePanel ui:field="headerDisplay"/>
                 </g:HTMLPanel>
             </g:north>

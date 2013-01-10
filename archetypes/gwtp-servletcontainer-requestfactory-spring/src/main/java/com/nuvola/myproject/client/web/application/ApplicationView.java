@@ -33,8 +33,6 @@ public class ApplicationView extends ViewImpl implements ApplicationPresenter.My
     @UiField
     SimplePanel headerDisplay;
     @UiField
-    SimplePanel messageDisplay;
-    @UiField
     SimplePanel siderDisplay;
     @UiField
     SimpleLayoutPanel mainDisplay;
@@ -61,8 +59,6 @@ public class ApplicationView extends ViewImpl implements ApplicationPresenter.My
                 headerDisplay.setWidget(content);
             } else if (slot == ApplicationPresenter.TYPE_SetSiderContent) {
                 siderDisplay.setWidget(content);
-            } else if (slot == ApplicationPresenter.TYPE_SetMessageContent) {
-                messageDisplay.setWidget(content);
             }
         }
     }

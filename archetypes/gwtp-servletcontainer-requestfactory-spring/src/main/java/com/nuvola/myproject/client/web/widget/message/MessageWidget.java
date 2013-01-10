@@ -1,4 +1,4 @@
-package com.nuvola.myproject.client.web.application.widget.message;
+package com.nuvola.myproject.client.web.widget.message;
 
 import com.github.gwtbootstrap.client.ui.Alert;
 import com.google.gwt.user.client.Timer;

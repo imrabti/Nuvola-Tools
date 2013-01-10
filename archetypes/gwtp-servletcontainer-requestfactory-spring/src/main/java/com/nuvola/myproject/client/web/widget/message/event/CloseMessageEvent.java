@@ -1,9 +1,9 @@
-package com.nuvola.myproject.client.web.application.widget.message.event;
+package com.nuvola.myproject.client.web.widget.message.event;
 
 import com.google.gwt.event.shared.EventHandler;
 import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.event.shared.HasHandlers;
-import com.nuvola.myproject.client.web.application.widget.message.Message;
+import com.nuvola.myproject.client.web.widget.message.Message;
 
 public class CloseMessageEvent extends GwtEvent<CloseMessageEvent.MessageCloseHandler> {
     public interface MessageCloseHandler extends EventHandler {

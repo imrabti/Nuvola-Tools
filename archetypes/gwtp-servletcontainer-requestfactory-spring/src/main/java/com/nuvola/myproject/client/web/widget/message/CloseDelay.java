@@ -1,4 +1,4 @@
-package com.nuvola.myproject.client.web.application.widget.message;
+package com.nuvola.myproject.client.web.widget.message;
 
 public enum CloseDelay {
     NEVER(0),

@@ -1,4 +1,4 @@
-package com.nuvola.myproject.client.web.application.widget.message;
+package com.nuvola.myproject.client.web.widget.message;
 
 import com.arcbees.core.client.mvp.ViewImpl;
 import com.google.gwt.uibinder.client.UiBinder;

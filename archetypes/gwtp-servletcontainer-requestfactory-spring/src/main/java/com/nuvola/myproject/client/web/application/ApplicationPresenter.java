@@ -16,6 +16,7 @@
 
 package com.nuvola.myproject.client.web.application;
 
+import com.nuvola.myproject.client.web.RootPresenter;
 import com.nuvola.myproject.client.web.application.widget.HeaderPresenter;
 import com.nuvola.myproject.client.web.application.widget.SiderHolderPresenter;
 import com.nuvola.myproject.client.event.RequestEvent;
@@ -28,7 +29,6 @@ import com.gwtplatform.mvp.client.annotations.ContentSlot;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.proxy.Proxy;
 import com.gwtplatform.mvp.client.proxy.RevealContentHandler;
-import com.nuvola.myproject.client.web.application.widget.message.MessagePresenter;
 
 public class ApplicationPresenter extends Presenter<ApplicationPresenter.MyView, ApplicationPresenter.MyProxy>
         implements RequestEvent.RequestEventHandler {
@@ -45,24 +45,20 @@ public class ApplicationPresenter extends Presenter<ApplicationPresenter.MyView,
     @ContentSlot
     public static final Type<RevealContentHandler<?>> TYPE_SetMainContent = new Type<RevealContentHandler<?>>();
     public static final Object TYPE_SetHeaderContent = new Object();
-    public static final Object TYPE_SetMessageContent = new Object();
     public static final Object TYPE_SetSiderContent = new Object();
 
     private static final int LOADING_TIMEOUT = 250;
 
     private final HeaderPresenter headerPresenter;
-    private final MessagePresenter messagePresenter;
     private final SiderHolderPresenter siderHolderPresenter;
 
     @Inject
     public ApplicationPresenter(final EventBus eventBus, final MyView view, final MyProxy proxy,
                                 final HeaderPresenter headerPresenter,
-                                final MessagePresenter messagePresenter,
                                 final SiderHolderPresenter siderHolderPresenter) {
-        super(eventBus, view, proxy, RevealType.RootLayout);
+        super(eventBus, view, proxy, RootPresenter.TYPE_SetMainContent);
 
         this.headerPresenter = headerPresenter;
-        this.messagePresenter = messagePresenter;
         this.siderHolderPresenter = siderHolderPresenter;
     }
 
@@ -84,6 +80,5 @@ public class ApplicationPresenter extends Presenter<ApplicationPresenter.MyView,
     protected void onReveal() {
         setInSlot(TYPE_SetHeaderContent, headerPresenter);
         setInSlot(TYPE_SetSiderContent, siderHolderPresenter);
-        setInSlot(TYPE_SetMessageContent, messagePresenter);
     }
 }

@@ -1,11 +1,11 @@
-package com.nuvola.myproject.client.web.application.widget.message;
+package com.nuvola.myproject.client.web.widget.message;
 
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.PresenterWidget;
 import com.gwtplatform.mvp.client.View;
-import com.nuvola.myproject.client.web.application.widget.message.event.CloseMessageEvent;
-import com.nuvola.myproject.client.web.application.widget.message.event.MessageEvent;
+import com.nuvola.myproject.client.web.widget.message.event.CloseMessageEvent;
+import com.nuvola.myproject.client.web.widget.message.event.MessageEvent;
 
 public class MessagePresenter extends PresenterWidget<MessagePresenter.MyView> implements MessageEvent.MessageHandler,
         CloseMessageEvent.MessageCloseHandler {

@@ -1,4 +1,4 @@
-package com.nuvola.myproject.client.web.application.widget.message;
+package com.nuvola.myproject.client.web.widget.message;
 
 import com.google.gwt.inject.client.assistedinject.GinFactoryModuleBuilder;
 import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;

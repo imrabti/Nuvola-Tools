@@ -22,12 +22,10 @@ import com.nuvola.myproject.client.web.application.widget.HeaderView;
 import com.nuvola.myproject.client.web.application.widget.SiderHolderPresenter;
 import com.nuvola.myproject.client.web.application.widget.SiderHolderView;
 import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
-import com.nuvola.myproject.client.web.application.widget.message.MessageModule;
 
 public class ApplicationModule extends AbstractPresenterModule {
     @Override
     protected void configure() {
-        install(new MessageModule());
         install(new HomeModule());
 
         bindPresenter(ApplicationPresenter.class, ApplicationPresenter.MyView.class, ApplicationView.class,
