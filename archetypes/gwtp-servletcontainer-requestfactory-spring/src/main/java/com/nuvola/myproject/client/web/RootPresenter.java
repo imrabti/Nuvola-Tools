@@ -9,6 +9,7 @@ import com.gwtplatform.mvp.client.annotations.ContentSlot;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.proxy.Proxy;
 import com.gwtplatform.mvp.client.proxy.RevealContentHandler;
+import com.nuvola.myproject.client.web.widget.message.MessagePresenter;
 
 public class RootPresenter extends Presenter<RootPresenter.MyView, RootPresenter.MyProxy> {
     public interface MyView extends View {
@@ -20,10 +21,20 @@ public class RootPresenter extends Presenter<RootPresenter.MyView, RootPresenter
 
     @ContentSlot
     public static final GwtEvent.Type<RevealContentHandler<?>> TYPE_SetMainContent = new GwtEvent.Type<RevealContentHandler<?>>();
+    public static final Object TYPE_SetMessageContent = new Object();
+
+    private final MessagePresenter messagePresenter;
 
     @Inject
     public RootPresenter(final EventBus eventBus, final MyView view,
-                             final MyProxy proxy) {
+                         final MyProxy proxy, final MessagePresenter messagePresenter) {
         super(eventBus, view, proxy, RevealType.RootLayout);
+
+        this.messagePresenter = messagePresenter;
+    }
+
+    @Override
+    protected void onReveal() {
+        setInSlot(TYPE_SetMessageContent, messagePresenter);
     }
 }

@@ -16,6 +16,7 @@
 
 package com.nuvola.myproject.client.web.application;
 
+import com.nuvola.myproject.client.web.RootPresenter;
 import com.nuvola.myproject.client.web.application.widget.HeaderPresenter;
 import com.nuvola.myproject.client.web.application.widget.SiderHolderPresenter;
 import com.nuvola.myproject.client.event.RequestEvent;
@@ -55,7 +56,7 @@ public class ApplicationPresenter extends Presenter<ApplicationPresenter.MyView,
     public ApplicationPresenter(final EventBus eventBus, final MyView view, final MyProxy proxy,
                                 final HeaderPresenter headerPresenter,
                                 final SiderHolderPresenter siderHolderPresenter) {
-        super(eventBus, view, proxy, RevealType.RootLayout);
+        super(eventBus, view, proxy, RootPresenter.TYPE_SetMainContent);
 
         this.headerPresenter = headerPresenter;
         this.siderHolderPresenter = siderHolderPresenter;
