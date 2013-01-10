@@ -14,12 +14,19 @@
  * the License.
  */
 
-package com.nuvola.myproject.client.request;
+package com.nuvola.myproject.client.web.application.widget;
 
-import com.google.web.bindery.requestfactory.shared.RequestFactory;
+import com.arcbees.core.client.mvp.ViewImpl;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.user.client.ui.Widget;
+import com.google.inject.Inject;
 
-public interface MyRequestFactory extends RequestFactory {
-    AuthenticationRequest authenticationService();
+public class SiderHolderView extends ViewImpl implements SiderHolderPresenter.MyView {
+    public interface Binder extends UiBinder<Widget, SiderHolderView> {
+    }
 
-    MyServiceRequest myService();
+    @Inject
+    public SiderHolderView(final Binder uiBinder) {
+        initWidget(uiBinder.createAndBindUi(this));
+    }
 }

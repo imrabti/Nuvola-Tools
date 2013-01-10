@@ -14,12 +14,12 @@
  * the License.
  */
 
-package com.nuvola.myproject.client.request;
+package com.nuvola.myproject.server.security;
 
-import com.google.web.bindery.requestfactory.shared.RequestFactory;
+import com.nuvola.myproject.server.business.User;
 
-public interface MyRequestFactory extends RequestFactory {
-    AuthenticationRequest authenticationService();
+public interface AuthenticationService {
+    User currentUser();
 
-    MyServiceRequest myService();
+    Boolean authenticate(String username, String password);
 }

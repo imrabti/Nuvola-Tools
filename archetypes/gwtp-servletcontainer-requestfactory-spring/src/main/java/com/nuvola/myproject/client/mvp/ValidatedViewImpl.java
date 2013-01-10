@@ -41,6 +41,7 @@ public abstract class ValidatedViewImpl extends ViewImpl implements ValidatedVie
         for (ConstraintViolation violation : violations) {
             String fieldId = "#" + violation.getPropertyPath();
             $(fieldId).attr("message", violation.getMessage());
+            $(fieldId).addClass("errorField");
             ControlGroup wrapper = $(fieldId).parent().widget();
             wrapper.setType(ControlGroupType.ERROR);
 
@@ -68,6 +69,7 @@ public abstract class ValidatedViewImpl extends ViewImpl implements ValidatedVie
                 String fieldId = "#" + e.getId();
                 $(fieldId).unbind(Event.ONFOCUS);
                 $(fieldId).unbind(Event.ONBLUR);
+                $(fieldId).removeClass("errorField");
                 ControlGroup wrapper = $(fieldId).parent().widget();
                 wrapper.setType(ControlGroupType.NONE);
             }

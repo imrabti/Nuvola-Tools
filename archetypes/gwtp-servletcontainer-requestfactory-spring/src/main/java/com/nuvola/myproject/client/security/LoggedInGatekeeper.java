@@ -14,12 +14,21 @@
  * the License.
  */
 
-package com.nuvola.myproject.client.request;
+package com.nuvola.myproject.client.security;
 
-import com.google.web.bindery.requestfactory.shared.RequestFactory;
+import com.google.inject.Inject;
+import com.gwtplatform.mvp.client.proxy.Gatekeeper;
 
-public interface MyRequestFactory extends RequestFactory {
-    AuthenticationRequest authenticationService();
+public class LoggedInGatekeeper implements Gatekeeper {
+    private final SecurityUtils securityUtils;
 
-    MyServiceRequest myService();
+    @Inject
+    public LoggedInGatekeeper(final SecurityUtils securityUtils) {
+        this.securityUtils = securityUtils;
+    }
+
+    @Override
+    public boolean canReveal() {
+        return securityUtils.isLoggedIn();
+    }
 }

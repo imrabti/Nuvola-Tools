@@ -14,12 +14,13 @@
  * the License.
  */
 
-package com.nuvola.myproject.client.request;
+package com.nuvola.myproject.server.repos;
 
-import com.google.web.bindery.requestfactory.shared.RequestFactory;
+import com.nuvola.myproject.server.business.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface MyRequestFactory extends RequestFactory {
-    AuthenticationRequest authenticationService();
+public interface UserRepos extends JpaRepository<User, Long> {
+    User findByEmail(String email);
 
-    MyServiceRequest myService();
+    User findByUsername(String username);
 }
