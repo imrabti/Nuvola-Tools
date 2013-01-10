@@ -2,27 +2,23 @@ package com.nuvola.myproject.client.web.application.widget.message;
 
 import com.github.gwtbootstrap.client.ui.constants.AlertType;
 import com.google.gwt.safehtml.shared.SafeHtml;
+import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.user.client.ui.InlineHTML;
 import com.google.gwt.user.client.ui.Widget;
 
 public class Message {
     public static class Builder {
-        private final Widget message;
+        private final SafeHtml message;
         private AlertType messageStyle = AlertType.ERROR;
         private CloseDelay closeDelay = CloseDelay.DEFAULT;
         private Boolean defaultCloseButton = true;
 
         public Builder(String message) {
-            this.message = new InlineHTML(message);
+            this.message = SafeHtmlUtils.fromString(message);
         }
 
         public Builder(SafeHtml message) {
-            this.message = new InlineHTML(message);
-        }
-
-        public Builder(Widget message) {
             this.message = message;
-            defaultCloseButton = false;
         }
 
         public Builder style(AlertType messageStyle) {
@@ -40,12 +36,12 @@ public class Message {
         }
     }
 
-    private final Widget message;
+    private final SafeHtml message;
     private final AlertType messageStyle;
     private final CloseDelay closeDelay;
     private final Boolean useDefaultCloseButton;
 
-    private Message(final Widget message, final AlertType messageStyle, final CloseDelay closeDelay,
+    private Message(final SafeHtml message, final AlertType messageStyle, final CloseDelay closeDelay,
                     final Boolean useDefaultCloseButton) {
         this.message = message;
         this.messageStyle = messageStyle;
@@ -59,14 +55,14 @@ public class Message {
             return false;
         }
         Message rhs = (Message) o;
-        return (message.equals(rhs.message) && messageStyle.equals(rhs.messageStyle));
+        return (message.toString().equals(rhs.message.toString()) && messageStyle.equals(rhs.messageStyle));
     }
 
     public AlertType getMessageStyle() {
         return messageStyle;
     }
 
-    public Widget getMessage() {
+    public SafeHtml getMessage() {
         return message;
     }
 
