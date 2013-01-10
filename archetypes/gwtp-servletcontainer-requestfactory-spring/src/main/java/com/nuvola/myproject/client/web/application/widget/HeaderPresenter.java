@@ -14,12 +14,19 @@
  * the License.
  */
 
-package com.nuvola.myproject.client.request;
+package com.nuvola.myproject.client.web.application.widget;
 
-import com.google.web.bindery.requestfactory.shared.RequestFactory;
+import com.google.inject.Inject;
+import com.google.web.bindery.event.shared.EventBus;
+import com.gwtplatform.mvp.client.PresenterWidget;
+import com.gwtplatform.mvp.client.View;
 
-public interface MyRequestFactory extends RequestFactory {
-    AuthenticationRequest authenticationService();
+public class HeaderPresenter extends PresenterWidget<HeaderPresenter.MyView> {
+    public interface MyView extends View {
+    }
 
-    MyServiceRequest myService();
+    @Inject
+    public HeaderPresenter(EventBus eventBus, MyView view) {
+        super(eventBus, view);
+    }
 }

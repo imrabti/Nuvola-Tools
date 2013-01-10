@@ -14,12 +14,8 @@
  * the License.
  */
 
-package com.nuvola.myproject.client.request;
+package com.nuvola.myproject.shared.type;
 
-import com.google.web.bindery.requestfactory.shared.RequestFactory;
-
-public interface MyRequestFactory extends RequestFactory {
-    AuthenticationRequest authenticationService();
-
-    MyServiceRequest myService();
+public enum Authority {
+    ROLE_USER, ROLE_ADMIN;
 }

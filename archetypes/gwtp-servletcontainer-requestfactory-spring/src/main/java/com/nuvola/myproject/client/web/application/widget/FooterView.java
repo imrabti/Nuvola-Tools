@@ -14,12 +14,19 @@
  * the License.
  */
 
-package com.nuvola.myproject.client.request;
+package com.nuvola.myproject.client.web.application.widget;
 
-import com.google.web.bindery.requestfactory.shared.RequestFactory;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.Widget;
+import com.google.inject.Inject;
 
-public interface MyRequestFactory extends RequestFactory {
-    AuthenticationRequest authenticationService();
+public class FooterView extends Composite {
+    public interface Binder extends UiBinder<Widget, FooterView> {
+    }
 
-    MyServiceRequest myService();
+    @Inject
+    public FooterView(final Binder uiBinder) {
+        initWidget(uiBinder.createAndBindUi(this));
+    }
 }

@@ -14,12 +14,11 @@
  * the License.
  */
 
-package com.nuvola.myproject.client.request;
+package com.nuvola.myproject.client.web.application.home;
 
-import com.google.web.bindery.requestfactory.shared.RequestFactory;
+import com.nuvola.myproject.client.request.proxy.MyEntityProxy;
+import com.gwtplatform.mvp.client.UiHandlers;
 
-public interface MyRequestFactory extends RequestFactory {
-    AuthenticationRequest authenticationService();
-
-    MyServiceRequest myService();
+public interface HomeUiHandlers extends UiHandlers {
+    void saveEntity(MyEntityProxy myEntity);
 }

@@ -16,10 +16,16 @@
 
 package com.nuvola.myproject.client.request;
 
-import com.google.web.bindery.requestfactory.shared.RequestFactory;
+import com.google.web.bindery.requestfactory.shared.Request;
+import com.google.web.bindery.requestfactory.shared.RequestContext;
+import com.google.web.bindery.requestfactory.shared.Service;
+import com.nuvola.myproject.client.request.proxy.UserProxy;
+import com.nuvola.myproject.server.security.AuthenticationServiceImpl;
+import com.nuvola.myproject.server.util.SpringServiceLocator;
 
-public interface MyRequestFactory extends RequestFactory {
-    AuthenticationRequest authenticationService();
+@Service(value = AuthenticationServiceImpl.class, locator = SpringServiceLocator.class)
+public interface AuthenticationRequest extends RequestContext {
+    Request<UserProxy> currentUser();
 
-    MyServiceRequest myService();
+    Request<Boolean> authenticate(String username, String password);
 }
