@@ -37,7 +37,7 @@ public class ReportController {
 
      @RequestMapping(method = RequestMethod.POST, produces = "application/pdf")
      @ResponseStatus(HttpStatus.OK)
-     public void doPdfReport(@RequestParam ReportDTO reportDTO, HttpServletResponse response) {
+     public void generateReport(@RequestParam ReportDTO reportDTO, HttpServletResponse response) {
           try {
                response.addHeader("Content-Disposition", "inline; filename="+reportDTO.getReportName()+".pdf");
 

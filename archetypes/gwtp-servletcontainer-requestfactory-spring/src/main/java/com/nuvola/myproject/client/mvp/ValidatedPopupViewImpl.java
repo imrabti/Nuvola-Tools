@@ -43,6 +43,7 @@ public abstract class ValidatedPopupViewImpl extends PopupViewImpl implements Va
         for (ConstraintViolation violation : violations) {
             String fieldId = "#" + violation.getPropertyPath();
             $(fieldId).attr("message", violation.getMessage());
+            $(fieldId).addClass("errorField");
             ControlGroup wrapper = $(fieldId).parent().widget();
             wrapper.setType(ControlGroupType.ERROR);
 
@@ -70,6 +71,7 @@ public abstract class ValidatedPopupViewImpl extends PopupViewImpl implements Va
                 String fieldId = "#" + e.getId();
                 $(fieldId).unbind(Event.ONFOCUS);
                 $(fieldId).unbind(Event.ONBLUR);
+                $(fieldId).removeClass("errorField");
                 ControlGroup wrapper = $(fieldId).parent().widget();
                 wrapper.setType(ControlGroupType.NONE);
             }

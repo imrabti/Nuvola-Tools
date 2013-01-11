@@ -19,5 +19,5 @@ package com.nuvola.myproject.server.service;
 import com.nuvola.myproject.shared.dto.ReportDTO;
 
 public interface ReportService {
-     byte[] generatePdf(ReportDTO reportDTO);
+     byte[] generatePdf(ReportDTO reportDTO) throws Exception;
 }

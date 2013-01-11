@@ -28,26 +28,20 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.io.InputStream;
-
-@Service("reportService")
-@Transactional
+@Service
+@Transactional(readOnly = true)
 public class ReportServiceImpl implements ReportService, ResourceLoaderAware {
      private ResourceLoader resourceLoader;
 
      @Override
-     public byte[] generatePdf(ReportDTO reportDTO) {
+     public byte[] generatePdf(ReportDTO reportDTO) throws Exception {
           Resource resource = getResource("classpath:/META-INF/jaspertemplates/" +
                   reportDTO.getReportName() + ".jasper");
-          try {
-               // TODO: Change this empty dataSource and provide valid jasper template
-               JREmptyDataSource emptyDataSource = new JREmptyDataSource();
-               JasperPrint jasperPrint = JasperFillManager.fillReport(resource.getInputStream(),
-                       reportDTO.getReportParameters(), emptyDataSource);
-               return JasperExportManager.exportReportToPdf(jasperPrint);
-          } catch(Exception e){
-               throw new RuntimeException(e);
-          }
+          // TODO: Change this empty dataSource and provide valid jasper template
+          JREmptyDataSource emptyDataSource = new JREmptyDataSource();
+          JasperPrint jasperPrint = JasperFillManager.fillReport(resource.getInputStream(),
+                  reportDTO.getReportParameters(), emptyDataSource);
+          return JasperExportManager.exportReportToPdf(jasperPrint);
      }
 
      @Override

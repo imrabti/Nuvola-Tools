@@ -19,4 +19,11 @@ package com.nuvola.myproject.client.resource.message;
 import com.google.gwt.i18n.client.Messages;
 
 public interface MessageBundle extends Messages {
+    String wrongLoginOrPassword();
+
+    String loginPasswordRequired();
+
+    String registerInfoMissing();
+
+    String myEntitySaveSucess();
 }
