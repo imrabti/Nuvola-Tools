@@ -19,6 +19,7 @@ public class EventSourceRequestTransport implements RequestTransport {
         this.wrapped = wrapped;
     }
 
+    @Override
     public void send(String payload, final TransportReceiver receiver) {
         TransportReceiver myReceiver = new TransportReceiver() {
             @Override
