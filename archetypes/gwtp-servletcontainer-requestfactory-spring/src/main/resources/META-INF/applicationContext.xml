@@ -37,4 +37,17 @@
     <jdbc:embedded-database id="dataSource" type="H2"/>
 
     <import resource="applicationContext-activiti.xml" />
+
+    <!-- VelocityEngine configuration -->
+    <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+        <property name="velocityProperties">
+            <props>
+                <prop key="resource.loader">class</prop>
+                <prop key="class.resource.loader.class">
+                    org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+                </prop>
+                <prop key="input.encoding">UTF-8</prop>
+            </props>
+        </property>
+    </bean>
 </beans>

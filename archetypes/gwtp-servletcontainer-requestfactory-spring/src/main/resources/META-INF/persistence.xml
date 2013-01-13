@@ -6,6 +6,7 @@
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <class>com.nuvola.myproject.server.business.User</class>
         <class>com.nuvola.myproject.server.business.MyEntity</class>
+        <class>com.nuvola.myproject.server.business.EmailTemplate</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
             <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>

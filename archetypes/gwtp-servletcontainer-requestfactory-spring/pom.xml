@@ -447,5 +447,12 @@
             <version>${jukito.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- velocity dependancy -->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>1.7</version>
+        </dependency>
     </dependencies>
 </project>
