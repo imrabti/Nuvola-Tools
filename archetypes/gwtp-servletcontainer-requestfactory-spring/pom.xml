@@ -454,5 +454,16 @@
             <artifactId>velocity</artifactId>
             <version>1.7</version>
         </dependency>
+        <!-- xlseasy dependancy -->
+        <dependency>
+            <groupId>org.adorsys.xlseasy</groupId>
+            <artifactId>xlseasy.api</artifactId>
+            <version>1.3-CR5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.adorsys.xlseasy</groupId>
+            <artifactId>xlseasy.impl</artifactId>
+            <version>1.3-CR5</version>
+        </dependency>
     </dependencies>
 </project>
