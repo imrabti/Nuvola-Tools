@@ -34,5 +34,7 @@
     <jpa:repositories base-package="com.nuvola.myproject.server.repos" repository-impl-postfix="Impl"/>
 
     <!-- DEV Datasource configuration -->
-    <jdbc:embedded-database id="dataSource" type="HSQL"/>
+    <jdbc:embedded-database id="dataSource" type="H2"/>
+
+    <import resource="applicationContext-activiti.xml" />
 </beans>
